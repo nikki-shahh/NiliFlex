@@ -47,8 +47,7 @@ let topTenMovies = [
 ];
     
 app.use(morgan('common'));
-app.use(express.static('public/documentation.html'));
-
+app.use(express.static("public"));
 
 app.get('/', (req, res)=>{
     res.send('Welcome to NiliFlex');
