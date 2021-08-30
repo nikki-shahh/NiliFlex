@@ -6,8 +6,10 @@ const express = require('express'),
 const mongoose = require('mongoose');
 const Models = require('./models/models.js');
 
-mongoose.connect('mongodb://localhost:27017/niliflex', { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect('mongodb://localhost:27017/niliflex', { useNewUrlParser: true, useUnifiedTopology: true });
 //mongoose.connect('mongodb+srv://niliflex:passw0rd@cluster0.og8jo.mongodb.net/moviedb?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
 const Movies = Models.Movie;
 const Users = Models.User;
 
