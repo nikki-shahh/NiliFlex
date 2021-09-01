@@ -56,6 +56,13 @@ reading data from requests and morgan for logging.
 						</thead>
 						<tbody>
 							<tr>
+								<td>Login</td>
+								<td>/login</td>
+								<td>POST</td>
+								<td>None</td>
+								<td>A text message indicating whether the user was authorized or not</td>
+							</tr>
+							<tr>
 								<td>Return a list of ALL movies to the user</td>
 								<td>/movies</td>
 								<td>GET</td>
