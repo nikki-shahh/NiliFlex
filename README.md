@@ -114,7 +114,7 @@ reading data from requests and morgan for logging.
 								<td>/users</td>
 								<td>POST</td>
 								<td>A JSON object holding data about the registered users <br> 
-									{ <br> Username: string <br> Password: string <br> Email: string <br> Birthday: date <br> }</td>
+									{ <br> Username: "string", <br> Password: "string", <br> Email: "string", <br> Birthday: "date" <br> }</td>
 								<td>A response indicating whether the user was successfully registered<br>A JSON object holding data about the user that was registered, inculding an ID: <br /><em>e.g.:</em> 
 									{ <br> id: 1<br> username: "Name", <br> password: "password",
 									<br> e-mail: "name@google.com", <br> birthday: "00.00.0000" <br> }</td>
@@ -172,4 +172,4 @@ reading data from requests and morgan for logging.
 - MongoDB
 - Mongoose
 
-#### and Hosted on Heroku 
+#### and Hosted on Heroku <a href="https://niliflix.herokuapp.com/">Niliflix.herokuapp.com/</a>
