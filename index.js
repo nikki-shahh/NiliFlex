@@ -15,11 +15,11 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 const app = express();
-
+const cors = require('cors');
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const cors = require('cors');
 
 let auth = require('./auth.js')(app);
 const passport = require('passport');
@@ -27,7 +27,7 @@ require('./passport.js');
 
 app.use(express.static('public'));
 app.use(morgan('common'));
-app.use(cors());
+
 
 
 app.get('/', (req, res) => {
