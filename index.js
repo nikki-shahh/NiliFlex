@@ -83,16 +83,27 @@ app.get('/directors/:Name', passport.authenticate('jwt', { session: false }), (r
 
 //Return all users
 
-//app.get('/users' , passport.authenticate('jwt',{session: false}),(req, res) => {
-//Users.find()
-//.then((users) => {
-// res.status(201).json(users);
-//})
-//.catch((err) => {
-// console.error(err);
-//res.status(500).send('Error: ' + err);
-// });
-//});
+app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.find()
+    .then((users) => {
+      res.status(201).json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
+
+app.get('/users/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.findOne({ Username: username })
+    .then((users) => {
+      res.status(201).json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
 
 //Allow new users to register
 
