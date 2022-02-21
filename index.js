@@ -107,9 +107,20 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (r
 });
 
 //Allow new users to register
-
+/* We’ll expect JSON in this format
+{
+  ID: Integer,
+  Username: String,
+  Password: String,
+  Email: String,
+  Birthday: Date
+}*/
 app.post('/users',
   [
+    /* you can either use a chain of methods like .not().isEmpty()
+  which means "opposite of isEmpty" in plain english "is not empty"
+  or use .isLength({min: 5}) which means
+  minimum value of 5 characters are only allowed */
     check('Username', 'Username is required').isLength({ min: 5 }),
     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
     check('Password', 'Password is required').not().isEmpty(),
@@ -145,6 +156,16 @@ app.post('/users',
   });
 
 //Allow users to update their user info
+/* We’ll expect JSON in this format
+{
+  Username: String,
+  (required)
+  Password: String,
+  (required)
+  Email: String,
+  (required)
+  Birthday: Date
+}*/
 app.put('/users/:Username',
   [
     check('Username', 'Username is required').isLength({ min: 5 }),
